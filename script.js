@@ -72,3 +72,12 @@ function Acao(opcao) {
     }
 }
 
+function Login(nome, senha) {
+    for (let i = 0; i < nomes.length; i++) {
+        if (nome == nomes[i] && senha == senhas[i]) {
+            console.log("Login feito com sucesso")
+        } else {
+            console.log("Nome ou senha incorretos")
+        }
+    }
+}
