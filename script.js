@@ -39,6 +39,23 @@ function Cadastrar(nomes, senhas) {
     indexGeral++
 }
 
+function Login(nome, senha) {
+    for (let i = 0; i < nomes.length; i++) {
+        if (nome == nomes[i] && senha == senhas[i]) {
+            alert("Login feito com sucesso")
+        } else {
+            alert("Nome ou senha incorretos")
+        }
+    }
+}
+
+function ExcluirCadastro(nome){
+    posicaoDoNome = nomes.indexOf(nome)
+    nomes.splice(posicaoDoNome, 1)
+    senhas.splice(posicaoDoNome, 1)
+    alert("Login excluido com sucesso")
+}
+
 function Acao(opcao) {
     opcao = prompt("O que deseja fazer? 1 para cadastrar, 2 para fazer login, 3 para excluir um cadastro ou 4 para encerrar o programa.")
     switch (opcao) {
@@ -73,21 +90,4 @@ function Acao(opcao) {
     
     
     }
-}
-
-function Login(nome, senha) {
-    for (let i = 0; i < nomes.length; i++) {
-        if (nome == nomes[i] && senha == senhas[i]) {
-            alert("Login feito com sucesso")
-        } else {
-            alert("Nome ou senha incorretos")
-        }
-    }
-}
-
-function ExcluirCadastro(nome){
-    posicaoDoNome = nomes.indexOf(nome)
-    nomes.splice(posicaoDoNome, 1)
-    senhas.splice(posicaoDoNome, 1)
-    alert("Login excluido com sucesso")
 }
