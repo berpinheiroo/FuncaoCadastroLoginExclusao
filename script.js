@@ -29,6 +29,7 @@ let indexGeral = 0
 let opcao = "0"
 let nome
 let senha
+let posicaoDoNome
 
 Acao(opcao)
 
@@ -40,7 +41,6 @@ function Cadastrar(nomes, senhas) {
 
 function Acao(opcao) {
     opcao = prompt("O que deseja fazer? 1 para cadastrar, 2 para fazer login, 3 para excluir um cadastro ou 4 para encerrar o programa.")
-    
     switch (opcao) {
         case "1":
             Cadastrar(nomes, senhas)
@@ -52,20 +52,23 @@ function Acao(opcao) {
             nome = prompt("Insira um nome para fazer login")
             senha = prompt("Insira sua senha")
             Login(nome, senha)
+            Acao(opcao)
             break;
     
     
         case "3":
-    
+            nome = prompt("Insira um nome para excluir seu respectivo login")
+            ExcluirCadastro(nome, senha)
+            Acao(opcao)
             break;
     
     
         case "4":
-            console.log("Programa encerrado!")
+            alert("Programa encerrado!")
             break;
     
         default:
-            console.log("Essa opcao nao existe")
+            alert("Essa opcao nao existe")
             break;
     
     
@@ -75,9 +78,16 @@ function Acao(opcao) {
 function Login(nome, senha) {
     for (let i = 0; i < nomes.length; i++) {
         if (nome == nomes[i] && senha == senhas[i]) {
-            console.log("Login feito com sucesso")
+            alert("Login feito com sucesso")
         } else {
-            console.log("Nome ou senha incorretos")
+            alert("Nome ou senha incorretos")
         }
     }
+}
+
+function ExcluirCadastro(nome){
+    posicaoDoNome = nomes.indexOf(nome)
+    nomes.splice(posicaoDoNome, 1)
+    senhas.splice(posicaoDoNome, 1)
+    alert("Login excluido com sucesso")
 }
