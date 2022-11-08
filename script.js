@@ -38,3 +38,37 @@ function Cadastrar(nomes, senhas) {
     indexGeral++
 }
 
+function Acao(opcao) {
+    opcao = prompt("O que deseja fazer? 1 para cadastrar, 2 para fazer login, 3 para excluir um cadastro ou 4 para encerrar o programa.")
+    
+    switch (opcao) {
+        case "1":
+            Cadastrar(nomes, senhas)
+            Acao(opcao)
+            break;
+    
+    
+        case "2":
+            nome = prompt("Insira um nome para fazer login")
+            senha = prompt("Insira sua senha")
+            Login(nome, senha)
+            break;
+    
+    
+        case "3":
+    
+            break;
+    
+    
+        case "4":
+            console.log("Programa encerrado!")
+            break;
+    
+        default:
+            console.log("Essa opcao nao existe")
+            break;
+    
+    
+    }
+}
+
